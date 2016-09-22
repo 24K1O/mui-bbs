@@ -1,0 +1,26 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/index.js",
+			"js/index.min.js",
+			"js/min/index.min.js",
+			"js/min/mui.min.js"
+		],
+		"refer": [
+			"menu.html"
+		]
+	},
+	"menu.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/menu.js",
+			"js/menu.min.js",
+			"js/min/menu.min.js"
+		]
+	}
+}
