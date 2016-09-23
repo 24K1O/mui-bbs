@@ -15,14 +15,17 @@
 			<a class="mui-action-menu mui-icon mui-icon-bars mui-pull-left"></a>
 			<h1 class="mui-title">上社Happy社区</h1>
 		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded">
-				<p>这是webview模式右滑导航示例，主页面和菜单在不同的webview中， 优点是支持菜单内容在多页面的复用，缺点是不支持拖动手势（跟手）； 当前页面为主界面，你可以在主界面放置任何内容； 打开侧滑菜单有多种方式： 1、在当前页面快速向右滑动（swipe）； 2、点击页面左上角的
-				</p>
+		<div class="mui-content"> 
+			<div class="mui-scroll-wrapper" style="margin-top: 48px">
+				<div class="mui-scroll">
+					<ul class="mui-table-view" id="topicTypeList">
+					</ul>
+				</div>
 			</div>
 		</div>
 	</body>
-	<script src="js/min/mui.min.js"></script>
+	<script src="js/min/mui.min.js"></script> 
+	<script src="js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/min/index.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		index.start();

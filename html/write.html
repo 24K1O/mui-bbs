@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view" id="topic_list">
+					<li class="mui-table-view-cell">
+						<div class="media">
+							<div class="media-left">
+								<img src="" alt="avatar" class="media-object avatar">
+							</div>
+							<div class="media-body">
+								<div class="media-heading item-title">
+									<a href="javascript:topic_detail(\'' + _data.id + '\');">data.titl</a>
+								</div>
+								<p class="small-fade">
+									<a class="node" href="javascript:;">(_data)</a>
+									• 个回复 • 次浏览 • moment('2016-09-21 22:14:00', 'YYYY-MM-DD HH:mm:ss').fromNow()
+								</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

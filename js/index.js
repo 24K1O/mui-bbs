@@ -3,12 +3,23 @@ var index = {
 	menu: null,
 	mask: null,
 	show: false,
-	mode: 'main-move',
+	template: '<li class="mui-table-view-cell mui-media" id="%{id}" title="%{title}">' +
+		'<a href="javascript:;">' +
+		'<img class="mui-media-object mui-pull-left" src="%{icon}">' +
+		'<div class="mui-media-body">' +
+		'%{name}' +
+		'<p class="mui-ellipsis">%{remark}</p>' +
+		'</div>' +
+		'</a>' +
+		'</li>',
 	start: function() {
 		index.before();
 		mui.init({
 			swipeBack: false,
 			beforeback: index.back
+		});
+		mui('.mui-scroll-wrapper').scroll({
+			deceleration: 0.0005
 		});
 		index.after();
 	},
@@ -17,6 +28,7 @@ var index = {
 	},
 	after: function() {
 		index.pReady();
+		index.load();
 		document.querySelector('.mui-icon-bars').addEventListener('tap', index.open);
 		window.addEventListener('dragright', function(e) {
 			e.detail.gesture.preventDefault();
@@ -91,5 +103,31 @@ var index = {
 			index.menu.close('none');
 			return true;
 		}
+	},
+	load: function() {
+		Ajax.post(Ajax.url.topicTypeList, {}, function(data) {
+			var html = '';
+			for(var i in data) {
+				html += index.template.replace('%{id}', data[i].id)
+					.replace('%{title}', data[i].name)
+					.replace('%{icon}', Constant.hostname + data[i].icon)
+					.replace('%{name}', data[i].name)
+					.replace('%{remark}', data[i].remark);
+			}
+			document.getElementById('topicTypeList').innerHTML = html;
+			mui('.mui-table-view').on('tap', '.mui-table-view-cell', index.handle);
+		});
+	},
+	handle: function() {
+		var id = this.getAttribute('id');
+		var name = this.getAttribute('title');
+		mui.openWindow({
+			id : 'html/listmain.html',
+			url: 'html/listmain.html',
+			extras: {
+				_id: id,
+				_name: name
+			}
+		});
 	}
 }

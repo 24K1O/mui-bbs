@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -200,10 +200,13 @@
 					"js/index.js",
 					"js/index.min.js",
 					"js/min/index.min.js",
-					"js/min/mui.min.js"
+					"js/min/mui.min.js",
+					"js/min/app.min.js"
 				],
 				"refer": [
-					"menu.html"
+					"menu.html",
+					"html/list.html",
+					"html/listmain.html"
 				],
 				"priority": 0
 			},
@@ -214,7 +217,79 @@
 					"css/mui.min.css",
 					"js/menu.js",
 					"js/menu.min.js",
-					"js/min/menu.min.js"
+					"js/min/menu.min.js",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/list.html": {
+				"resources": [
+					"js/min/jquery.min.js",
+					"css/mui.min.css",
+					"css/bootstrap.min.css",
+					"js/min/mui.min.js",
+					"fonts/mui.ttf",
+					"js/min/list.min.js",
+					"js/list.js",
+					"js/min/app.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/listmain.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"html/listsub.html",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/listsub.html": {
+				"resources": [
+					"js/min/jquery.min.js",
+					"css/bootstrap.min.css",
+					"js/min/app.min.js",
+					"js/listsub.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"js/login.js",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"register.html",
+					"reset.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"register.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/register.js",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js"
+				],
+				"refer": [
+					"login.html"
+				],
+				"priority": 0
+			},
+			"reset.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
