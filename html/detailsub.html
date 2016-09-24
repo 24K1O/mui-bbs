@@ -6,36 +6,106 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<style type="text/css">
+			.mui-table-view:before {
+				background-color: #fff!important
+			}
+			
+			.mui-table-view:after {
+				background-color: #fff!important
+			}
+			
+			.comment-label {
+				padding: 2px 0 2px 10px;
+				border-left: solid 2px red;
+				background: #EEEEEE;
+			}
+			
+			footer {
+				position: fixed;
+				width: 100%;
+				height: 50px;
+				min-height: 50px;
+				border-top: solid 1px #bbb;
+				left: 0px;
+				bottom: 0px;
+				overflow: hidden;
+				padding: 0px 120px 0px 10px;
+				background-color: #fafafa;
+			}
+			
+			.footer-right {
+				position: absolute;
+				width: 120px;
+				height: 50px;
+				right: 0px;
+				bottom: 0px;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 100%;
+				padding: 14px 0px 0px 0px;
+				display: inline-block;
+			}
+			
+			.footer-center {
+				height: 100%;
+				padding: 5px 0px;
+			}
+			
+			.footer-center [class*=input] {
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+			}
+			
+			.footer-center .input-text {
+				background: #fff;
+				border: solid 1px #ddd;
+				padding: 10px !important;
+				font-size: 16px !important;
+				line-height: 18px !important;
+				font-family: verdana !important;
+			}
+		</style>
 	</head>
 
 	<body>
 		<!--下拉刷新容器-->
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+		<div id="container" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
-				<!--数据列表-->
-				<ul class="mui-table-view" id="topic_list">
-					<li class="mui-table-view-cell">
-						<div class="media">
-							<div class="media-left">
-								<img src="" alt="avatar" class="media-object avatar">
-							</div>
-							<div class="media-body">
-								<div class="media-heading item-title">
-									<a href="javascript:topic_detail(\'' + _data.id + '\');">data.titl</a>
-								</div>
-								<p class="small-fade">
-									<a class="node" href="javascript:;">(_data)</a>
-									• 个回复 • 次浏览 • moment('2016-09-21 22:14:00', 'YYYY-MM-DD HH:mm:ss').fromNow()
-								</p>
-							</div>
-						</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="topic">
 					</li>
 				</ul>
+				<div class="comment-label mui-hidden">
+					<h5>
+						全部评论
+					</h5>
+				</div>
+				<div class="mui-input-row" style="padding: 5px 5px 1px 5px; margin-top: -5px;">
+					<ul class="mui-table-view" id="commentList">
+					</ul>
+				</div>
 			</div>
 		</div>
-		<script src="../js/mui.min.js"></script>
+		<footer id="footer" class="mui-hidden">
+			<div class="footer-center">
+				<textarea type="text" class='input-text' placeholder="写评论" id="content" title=""></textarea>
+			</div>
+			<label for="" class="footer-right">
+				<button type="button" class="mui-btn mui-btn-mini" id="btnSend">发送</button>
+				<button type="button" class="mui-btn mui-btn-mini" id="btnCancel">取消</button>
+			</label>
+		</footer>
+		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/plugins/moment.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/plugins/zh-cn.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/detailsub.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			mui.init()
+			detailsub.start();
 		</script>
 	</body>
 

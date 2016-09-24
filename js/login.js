@@ -9,7 +9,9 @@ var login = {
 	after: function() {
 		login.pReady();
 		if(login.isLogin()) {
+			console.info('has login...');
 			mui.openWindow('index.html', 'index.html');
+			console.info('has login...');
 		}
 		document.getElementById('btnRegister').addEventListener('tap', function() {
 			mui.openWindow('register.html', 'register.html');

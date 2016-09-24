@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -244,7 +244,9 @@
 					"html/listsub.html",
 					"js/min/mui.min.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/write.html"
+				],
 				"priority": 0
 			},
 			"html/listsub.html": {
@@ -252,9 +254,18 @@
 					"js/min/jquery.min.js",
 					"css/bootstrap.min.css",
 					"js/min/app.min.js",
-					"js/listsub.js"
+					"js/listsub.js",
+					"images/logo.png",
+					"css/mui.min.css",
+					"js/min/mui.min.js",
+					"plugins/editor/css/fonts/icomoon.svg",
+					"fonts/mui.ttf",
+					"js/plugins/moment.min.js",
+					"js/plugins/zh-cn.js"
 				],
-				"refer": [],
+				"refer": [
+					"html/detailmain.html"
+				],
 				"priority": 0
 			},
 			"login.html": {
@@ -263,7 +274,8 @@
 					"css/mui.min.css",
 					"js/min/app.min.js",
 					"js/min/mui.min.js",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/min/login.min.js"
 				],
 				"refer": [
 					"register.html",
@@ -290,6 +302,49 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/write.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/min/mui.min.js",
+					"fonts/mui.ttf",
+					"plugins/editor/css/editor.min.css",
+					"plugins/editor/js/lib/zepto.touch.js",
+					"plugins/editor/js/lib/zepto.js",
+					"plugins/editor/js/editor.min.js",
+					"images/iconfont-tianjia.png",
+					"js/write.js",
+					"js/min/app.min.js"
+				],
+				"refer": [
+					"html/listmain.html"
+				],
+				"priority": 0
+			},
+			"html/detailmain.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js",
+					"html/detailsub.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/detailsub.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/min/mui.min.js",
+					"js/min/jquery.min.js",
+					"css/bootstrap.min.css",
+					"js/detailsub.js",
+					"js/min/app.min.js",
+					"fonts/mui.ttf",
+					"js/plugins/moment.min.js",
+					"js/plugins/zh-cn.js"
 				],
 				"refer": [],
 				"priority": 0

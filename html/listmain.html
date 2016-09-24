@@ -6,13 +6,26 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-bar-tab {
+				height: 45px!important;
+				background-color: #E3E3E3
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title" id="title"></h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="title"></h1>
 		</header>
+		<footer>
+			<nav class="mui-bar mui-bar-tab">
+				<a class="mui-tab-item mui-active" href="javascript:;" id="btnPublish">
+					发布帖子
+				</a>
+			</nav>
+		</footer>
 		<script src="../js/min/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init({
@@ -20,15 +33,26 @@
 					url: 'listsub.html',
 					id: 'listsub.html',
 					styles: {
-						top: '48px', 
-						bottom: '0px' 
+						top: '48px',
+						bottom: '45px'
 					}
 				}]
 			});
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				plus.storage.setItem('TOPIC_TYPE_ID', self._id);
+				localStorage.setItem('TOPIC_TYPE_ID', self._id);
+				console.info('dfs ' + self._id);
 				document.getElementById('title').innerHTML = self._name;
+				document.getElementById('btnPublish').addEventListener('tap', function() {
+					mui.openWindow({
+						id: 'write.html',
+						url: 'write.html',
+						extras: {
+							_id: self._id,
+							_name: self._name
+						}
+					});
+				});
 			});
 		</script>
 	</body>

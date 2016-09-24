@@ -122,7 +122,7 @@ var index = {
 		var id = this.getAttribute('id');
 		var name = this.getAttribute('title');
 		mui.openWindow({
-			id : 'html/listmain.html',
+			id: 'html/listmain.html',
 			url: 'html/listmain.html',
 			extras: {
 				_id: id,

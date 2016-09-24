@@ -2,11 +2,11 @@ var Constant = {
 	hostname: 'http://192.168.0.102',
 	defaultPageSize: 10,
 	keys: {
-		GLOBAL_ID: 'globalid'
-	   ,CLIENT_ID : 'clientid'
-	   ,CLIENT_EMAIL : 'clientemail'
-   	   ,CLIENT_NICKNAME: 'clientnickname'
-   	   ,CLIENT_HEADURL : 'clientheadurl' 
+		GLOBAL_ID: 'globalid',
+		CLIENT_ID: 'clientid',
+		CLIENT_EMAIL: 'clientemail',
+		CLIENT_NICKNAME: 'clientnickname',
+		CLIENT_HEADURL: 'clientheadurl'
 	},
 	init: function() {
 		//localStorage.removeItem(Constant.keys.LIBRARY_COOKIE);
@@ -45,14 +45,21 @@ var Constant = {
 }
 
 var Ajax = {
-	url: { 
+	url: {
 		version: Constant.hostname + '/version/update.json',
 		upload: Constant.hostname + '/upload',
-	   
-	   	clientLogin : Constant.hostname + '/pub/client/app/login',
-        clientRegister : Constant.hostname + '/pub/client/app/register',
-       
-		topicTypeList: Constant.hostname + '/bbs/topictype/app/list'
+ 
+		clientLogin: Constant.hostname + '/pub/client/app/login',
+		clientRegister: Constant.hostname + '/pub/client/app/register',
+
+		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
+
+		topicEdit: Constant.hostname + '/bbs/topic/edit',
+		topicList: Constant.hostname + '/bbs/topic/app/listByTopicType',
+		topic: Constant.hostname + '/bbs/topic/app/topic',
+
+		commentEdit: Constant.hostname + '/bbs/comment/edit',
+		commentList: Constant.hostname + '/bbs/comment/app/listByTopic'
 	},
 	timeout: 20000,
 	ajax: function(action, type, data, successCallback, errorCallback, dataType, handleMessage) {
@@ -65,6 +72,8 @@ var Ajax = {
 			mui.plusReady(function() {
 				plus.nativeUI.closeWaiting();
 				plus.nativeUI.toast(type);
+				console.info(xhr);
+				console.info(errorThrown);
 			});
 		}
 		var type = type || 'POST';

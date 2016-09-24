@@ -6,36 +6,43 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.image {
+				padding: 2px 4px 2px 0;
+			}
+		</style>
 	</head>
 
 	<body>
-		<!--下拉刷新容器-->
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<div class="mui-scroll">
-				<!--数据列表-->
-				<ul class="mui-table-view" id="topic_list">
-					<li class="mui-table-view-cell">
-						<div class="media">
-							<div class="media-left">
-								<img src="" alt="avatar" class="media-object avatar">
-							</div>
-							<div class="media-body">
-								<div class="media-heading item-title">
-									<a href="javascript:topic_detail(\'' + _data.id + '\');">data.titl</a>
-								</div>
-								<p class="small-fade">
-									<a class="node" href="javascript:;">(_data)</a>
-									• 个回复 • 次浏览 • moment('2016-09-21 22:14:00', 'YYYY-MM-DD HH:mm:ss').fromNow()
-								</p>
-							</div>
-						</div>
-					</li>
-				</ul>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">发布帖子</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row" style="margin-top: 10px">
+				<textarea id="content" rows="5" placeholder="在这说点什么吧..."></textarea>
 			</div>
+			<!--<div class="mui-input-row" id="imageList">
+				<a href="javascript" id="btnAdd">
+					<img src="../images/iconfont-tianjia.png" width="60" height="60" />
+				</a>
+			</div>-->
+			<div class="mui-input-row">
+				<h5 style="color: #007AFF;">温馨提示：</h5>
+				<!--<h6>1.图片最多可以上传3张。</h6>-->
+				<h6>发帖消耗3个积分。</h6>
+			</div>
+			<div>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="btnPublish" style="padding-top: 10px; padding-bottom: 10px;">
+					发表
+				</button>
+			</div> 
 		</div>
-		<script src="../js/mui.min.js"></script>
+		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/write.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			mui.init()
+			write.start();
 		</script>
 	</body>
 

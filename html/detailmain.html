@@ -9,12 +9,26 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
-		    HELLO
-		</div>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">帖子详情</h1>
+		</header>
 		<script src="../js/min/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init({
+				subpages: [{
+					url: 'detailsub.html',
+					id: 'detailsub.html',
+					styles: {
+						top: '48px',
+						bottom: '0px'
+					}
+				}]
+			});
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				localStorage.setItem('TOPIC_ID', self._id);
+			});
 		</script>
 	</body>
 
