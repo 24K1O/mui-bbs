@@ -8,11 +8,6 @@ var login = {
 	before: function() {},
 	after: function() {
 		login.pReady();
-		if(login.isLogin()) {
-			console.info('has login...');
-			mui.openWindow('index.html', 'index.html');
-			console.info('has login...');
-		}
 		document.getElementById('btnRegister').addEventListener('tap', function() {
 			mui.openWindow('register.html', 'register.html');
 		});
@@ -25,6 +20,9 @@ var login = {
 	},
 	pReady: function() {
 		mui.plusReady(function() {
+			if(login.isLogin()) {
+				mui.openWindow('index.html', 'index.html');
+			}
 			plus.screen.lockOrientation("portrait-primary");
 			mui.back = function(event) {
 				login.backClickCount++;

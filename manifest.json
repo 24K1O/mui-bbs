@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -218,7 +218,8 @@
 					"js/menu.js",
 					"js/menu.min.js",
 					"js/min/menu.min.js",
-					"js/min/mui.min.js"
+					"js/min/mui.min.js",
+					"images/iconfont-tianjia.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -264,7 +265,8 @@
 					"js/plugins/zh-cn.js"
 				],
 				"refer": [
-					"html/detailmain.html"
+					"html/detailmain.html",
+					"html/write.html"
 				],
 				"priority": 0
 			},
@@ -290,7 +292,8 @@
 					"js/register.js",
 					"css/mui.min.css",
 					"js/min/app.min.js",
-					"js/min/mui.min.js"
+					"js/min/mui.min.js",
+					"js/min/register.min.js"
 				],
 				"refer": [
 					"login.html"

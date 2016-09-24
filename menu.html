@@ -28,11 +28,15 @@
 			}
 			
 			.title+.content {
-				margin: 10px 15px 35px;
+				margin: 15px;
 				color: #bbb;
 				text-indent: 1em;
 				font-size: 14px;
 				line-height: 24px;
+			}
+			
+			.img-circle {
+				border-radius: 50%;
 			}
 			
 			.mui-table-view {
@@ -43,45 +47,42 @@
 
 	<body>
 		<div class="mui-content">
-			<div class="title">侧滑导航</div>
-			<div class="content">
-				这是侧滑菜单示例，你可以在这里放置任何内容；关闭侧滑菜单有多种方式： 1.在手机屏幕任意位置快速向左滑动(swipe)； 2.点击本侧滑菜单页之外的任意位置; 3.点击如下红色按钮；
+			<div class="title"></div>
+			<div class="content mui-text-center">
+				<img id="headUrl" src="" class="img-circle" height="80" width="80">
 			</div>
-			<div class="title" style="margin-bottom: 25px;">侧滑列表示例</div>
+			<div class="title mui-text-center" style="margin-bottom: 80px;" id="nickname"></div>
 			<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
-						Item 1
+						我的资料
 					</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
-						Item 2
+						我的消息
 					</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
-						Item 3
+						积分签到
 					</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
-						Item 4
+						社区群聊
 					</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
-						Item 5
+						注　　销
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						Item 6
-					</a>
-				</li>
+				
 			</ul>
 		</div>
 		<script src="js/min/mui.min.js"></script>
+		<script src="js/min/app.min.js" type="text/javascript" charset="utf-8"></script>		
 		<script src="js/min/menu.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			menu.start();

@@ -24,8 +24,10 @@
 			"js/menu.js",
 			"js/menu.min.js",
 			"js/min/menu.min.js",
-			"js/min/mui.min.js"
-		]
+			"js/min/mui.min.js",
+			"images/iconfont-tianjia.png"
+		],
+		"refer": []
 	},
 	"html/list.html": {
 		"resources": [
@@ -37,7 +39,8 @@
 			"js/min/list.min.js",
 			"js/list.js",
 			"js/min/app.min.js"
-		]
+		],
+		"refer": []
 	},
 	"html/listmain.html": {
 		"resources": [
@@ -66,7 +69,8 @@
 			"js/plugins/zh-cn.js"
 		],
 		"refer": [
-			"html/detailmain.html"
+			"html/detailmain.html",
+			"html/write.html"
 		]
 	},
 	"login.html": {
@@ -90,7 +94,8 @@
 			"js/register.js",
 			"css/mui.min.css",
 			"js/min/app.min.js",
-			"js/min/mui.min.js"
+			"js/min/mui.min.js",
+			"js/min/register.min.js"
 		],
 		"refer": [
 			"login.html"
@@ -101,7 +106,8 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"js/min/mui.min.js"
-		]
+		],
+		"refer": []
 	},
 	"html/write.html": {
 		"resources": [
@@ -142,6 +148,7 @@
 			"fonts/mui.ttf",
 			"js/plugins/moment.min.js",
 			"js/plugins/zh-cn.js"
-		]
+		],
+		"refer": []
 	}
 }

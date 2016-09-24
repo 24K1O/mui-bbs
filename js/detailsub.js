@@ -1,7 +1,7 @@
 var detailsub = {
 	page: 1,
 	size: 10,
-	topicKey: 'TOPIC_ID',
+	topic: 0,
 	topicTemplate: '<div class="media">' +
 		'<a class="pull-left" href="javascript:;">' +
 		'<img class="media-object" src="%{headUrl}" alt="" width="50" height="50">' +
@@ -14,9 +14,9 @@ var detailsub = {
 		'<div>' +
 		'%{content}' +
 		'</div>' +
-//		'<div class="mui-table-view mui-grid-view">' +
-//		'%{images}' +
-//		'</div>' +
+		//		'<div class="mui-table-view mui-grid-view">' +
+		//		'%{images}' +
+		//		'</div>' +
 		'<div class="mui-clearfix"></div>' +
 		'<div class="mui-pull-right">' +
 		'<h6 class="mui-badge mui-badge-primary mui-badge-inverted">评论（<span id="commentCount">%{commentCount}</span>）</h6>' +
@@ -59,9 +59,6 @@ var detailsub = {
 	before: function() {},
 	after: function() {
 		detailsub.pReady();
-		detailsub.page = 1;
-		detailsub.size = Constant.defaultPageSize;
-		detailsub.load();
 		document.getElementById('btnSend').addEventListener('tap', function() {
 			detailsub.comment();
 		});
@@ -80,12 +77,18 @@ var detailsub = {
 		});
 	},
 	pReady: function() {
-
+		mui.plusReady(function() {
+			detailsub.page = 1;
+			detailsub.size = Constant.defaultPageSize;
+			var self = plus.webview.currentWebview();
+			detailsub.topic = self._id;
+			detailsub.load();
+		}); 
 	},
 	load: function() {
 		var imageEl = '<div class="mui-table-view-cell mui-media mui-col-sm-3"><img src="%{image}" width=60 height=60></div>';
 		Ajax.post(Ajax.url.topic, {
-			id: localStorage.getItem(detailsub.topicKey)
+			id: detailsub.topic
 		}, function(response) {
 			var html = '';
 			var imagesHtml = '';
@@ -98,7 +101,7 @@ var detailsub = {
 				.replace('%{nickname}', response.clientNickName)
 				.replace('%{content}', response.content)
 				.replace('%{commentCount}', response.commentCount)
-//				.replace('%{images}', imagesHtml);
+				//				.replace('%{images}', imagesHtml);
 			document.getElementById('topic').innerHTML = html;
 			detailsub.loadComment();
 			document.querySelector('.comment-label').classList.remove('mui-hidden');
@@ -112,11 +115,11 @@ var detailsub = {
 		var contentEL = '%{content}';
 		var replyContentEL = '回复<span style="color: blue;"> %{replyClientNickname} </span> : %{content}';
 		Ajax.post(Ajax.url.commentList, {
-			topicId: localStorage.getItem(detailsub.topicKey),
+			topicId: detailsub.topic,
 			page: detailsub.page
 		}, function(response) {
 			var html = '';
-			var contentHtml = ''; 
+			var contentHtml = '';
 			for(var i in response) {
 				if(Ajax.isEmpty(response[i].replyClientId)) {
 					contentHtml = contentEL.replace('%{content}', response[i].content);
@@ -136,7 +139,7 @@ var detailsub = {
 			detailsub.addReplyListener();
 			if(callback != undefined) callback(response);
 		});
-	},
+	}, 
 	comment: function() {
 		var contentEl = document.getElementById('content');
 		var content = contentEl.value;
@@ -146,11 +149,10 @@ var detailsub = {
 		}
 		var author = contentEl.getAttribute('title');
 		var commentUser = localStorage.getItem(Constant.keys.CLIENT_ID);
-		commentUser = 1; //TODO
 		Ajax.post(Ajax.url.commentEdit, {
 			oper: 'add',
 			content: content,
-			"parentTopic.id": localStorage.getItem(detailsub.topicKey),
+			"parentTopic.id": detailsub.topic,
 			"parentCommentClient.id": commentUser,
 			"parentReplyClient.id": author
 		}, function(response) {
@@ -173,11 +175,15 @@ var detailsub = {
 		document.getElementById('content').setAttribute('title', title);
 		document.getElementById('content').setAttribute('placeholder', tip);
 	},
-	addReplyListener: function() {
+	addReplyListener: function() { 
+		mui("#commentList").off('tap', '.mui-icon-chatboxes');
 		mui("#commentList").on('tap', '.mui-icon-chatboxes', function() {
 			var author = this.getAttribute('id');
 			var commentUser = localStorage.getItem(Constant.keys.CLIENT_ID);
-			if(author == commentUser) return;
+			if(author == commentUser) {
+				plus.nativeUI.toast('不能回复自己的评论');
+				return;
+			}
 			var nickname = this.getAttribute('title');
 			detailsub.setTextareaAttribute(author, '回复' + nickname);
 			detailsub.showEdit();

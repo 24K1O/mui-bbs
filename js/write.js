@@ -60,10 +60,8 @@ var write = {
 			base64Image += write.images[i] + ',';
 		}
 		base64Image = base64Image.substring(0, base64Image.length - 1);
-		var self = plus.webview.currentWebview();
 		var client = localStorage.getItem(Constant.keys.CLIENT_ID);
-		client = 1; // TODO
-		console.info(self._id);
+		var self = plus.webview.currentWebview();
 		Ajax.post(Ajax.url.topicEdit, {
 			oper: 'add',
 			"parentClient.id": client,
@@ -71,14 +69,9 @@ var write = {
 			content: content,
 			base64Image: base64Image
 		}, function(response) {
-			mui.openWindow({
-				id: 'listmain.html',
-				url: 'listmain.html',
-				extras: {
-					_id: self._id,
-					_name: self._name
-				}
-			});
+			var list = plus.webview.getWebviewById('listsub.html');
+			mui.fire(list, 'refresh');
+			plus.webview.currentWebview().close();
 		});
 	}
 }

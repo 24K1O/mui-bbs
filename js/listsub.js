@@ -1,7 +1,8 @@
 var listsub = {
 	page: 1,
 	size: 10,
-	topicTypeKey: 'TOPIC_TYPE_ID',
+	topicType: 0,
+	topicTypeName: '帖子列表',
 	template: '<li class="mui-table-view-cell" id="%{id}">' +
 		'<div class="media">' +
 		'<a class="pull-left" href="javascript:;">' +
@@ -15,9 +16,9 @@ var listsub = {
 		'<div>' +
 		'%{content}' +
 		'</div>' +
-//		'<div class="mui-table-view mui-grid-view">' +
-//		'%{images}' +
-//		'</div>' +
+		//		'<div class="mui-table-view mui-grid-view">' +
+		//		'%{images}' +
+		//		'</div>' +
 		'</div>' +
 		'</div>' +
 		'</li>',
@@ -42,12 +43,26 @@ var listsub = {
 		});
 		listsub.after();
 	},
-	before: function() {},
+	before: function() {
+		window.addEventListener('refresh', function(e) {
+			/*jq('#topicList').html('');
+			listsub.page = 1;
+			listsub.load();*/
+			listsub.pullDownRefresh();
+		});
+	},
 	after: function() {
 		listsub.pReady();
-		listsub.page = 1;
-		listsub.size = Constant.defaultPageSize;
-		listsub.load();
+	},
+	pReady: function() {
+		mui.plusReady(function() {
+			var self = plus.webview.currentWebview();
+			listsub.topicType = self._id;
+			listsub.topicTypeName = self._name;
+			listsub.page = 1;
+			listsub.size = Constant.defaultPageSize;
+			listsub.load();
+		});
 	},
 	pullDownRefresh: function() {
 		mui('#container').pullRefresh().refresh(true);
@@ -61,20 +76,16 @@ var listsub = {
 		listsub.page = listsub.page + 1;
 		var _this = this;
 		listsub.load(function(response) {
-			if(response.length <= listsub.size)
+			if(response.length < listsub.size)
 				_this.endPullupToRefresh(true);
 			else
 				_this.endPullupToRefresh(false);
 		});
 	},
-	pReady: function() {
-		mui.plusReady(function() {});
-	},
 	load: function(callback) {
-		console.info('load' + localStorage.getItem(listsub.topicTypeKey))
 		Ajax.post(Ajax.url.topicList, {
 			page: listsub.page,
-			typeId: localStorage.getItem(listsub.topicTypeKey)
+			typeId: listsub.topicType
 		}, function(response) {
 			var imageEl = '<div class="mui-table-view-cell mui-media mui-col-sm-3" id="%{id}"><img src="%{image}" width=60 height=60></div>';
 			var html = '';
@@ -92,16 +103,15 @@ var listsub = {
 					.replace('%{nickname}', response[i].clientNickName)
 					.replace('%{content}', response[i].content)
 					.replace('%{commentCount}', response[i].commentCount)
-//					.replace('%{images}', imagesHtml);
+					//					.replace('%{images}', imagesHtml);
 			}
-			console.info(html);
 			jq('#topicList').append(html);
-			console.info('after');
 			listsub.addItemListener();
 			if(callback != undefined) callback(response);
 		});
 	},
 	addItemListener: function() {
+		mui(".mui-table-view").off('tap', '.mui-table-view-cell');
 		mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
 			var id = this.getAttribute('id');
 			mui.openWindow({

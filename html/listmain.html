@@ -19,30 +19,38 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title" id="title"></h1>
 		</header>
-		<footer>
+		<footer id="footer" class="mui-hidden">
 			<nav class="mui-bar mui-bar-tab">
 				<a class="mui-tab-item mui-active" href="javascript:;" id="btnPublish">
 					发布帖子
 				</a>
-			</nav>
+			</nav> 
 		</footer>
 		<script src="../js/min/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init({
-				subpages: [{
-					url: 'listsub.html',
-					id: 'listsub.html',
-					styles: {
-						top: '48px',
-						bottom: '45px'
-					}
-				}]
-			});
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
-				localStorage.setItem('TOPIC_TYPE_ID', self._id);
-				console.info('dfs ' + self._id);
 				document.getElementById('title').innerHTML = self._name;
+				bottom = 0;
+				if(!self._forbid || self._forbid=='false') {
+					bottom = 45;
+					document.getElementById('footer').classList.remove('mui-hidden');
+				}
+				
+				mui.init({
+					subpages: [{ 
+						url: 'listsub.html',
+						id: 'listsub.html',
+						styles: {
+							top: '48px',
+							bottom: bottom + 'px'
+						},
+						extras: {
+							_id: self._id,
+							_name: self._name
+						}
+					}]
+				});
 				document.getElementById('btnPublish').addEventListener('tap', function() {
 					mui.openWindow({
 						id: 'write.html',
@@ -53,6 +61,10 @@
 						}
 					});
 				});
+//				window.addEventListener('refresh', function(e) {
+//					var list = plus.webview.getWebviewById('listsub.html');
+//					mui.fire(list, 'refresh');
+//				});
 			});
 		</script>
 	</body>

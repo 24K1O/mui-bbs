@@ -15,19 +15,25 @@
 		</header>
 		<script src="../js/min/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init({
-				subpages: [{
-					url: 'detailsub.html',
-					id: 'detailsub.html',
-					styles: {
-						top: '48px',
-						bottom: '0px'
-					}
-				}]
-			});
-			mui.plusReady(function() {
+			mui.plusReady(function() { 
 				var self = plus.webview.currentWebview();
-				localStorage.setItem('TOPIC_ID', self._id);
+				mui.init({
+					subpages: [{
+						url: 'detailsub.html',
+						id: 'detailsub.html',
+						styles: {
+							top: '48px',
+							bottom: '0px'
+						},
+						extras: {
+							_id: self._id
+						}
+					}],
+					beforeback : function() {
+						var list = plus.webview.getWebviewById('listsub.html');  
+					    mui.fire(list, 'refresh');
+					}
+				});
 			});
 		</script>
 	</body>

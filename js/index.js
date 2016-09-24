@@ -3,7 +3,7 @@ var index = {
 	menu: null,
 	mask: null,
 	show: false,
-	template: '<li class="mui-table-view-cell mui-media" id="%{id}" title="%{title}">' +
+	template: '<li class="mui-table-view-cell mui-media" id="%{id}" title="%{title}" disabled="%{disabled}">' +
 		'<a href="javascript:;">' +
 		'<img class="mui-media-object mui-pull-left" src="%{icon}">' +
 		'<div class="mui-media-body">' +
@@ -110,6 +110,7 @@ var index = {
 			for(var i in data) {
 				html += index.template.replace('%{id}', data[i].id)
 					.replace('%{title}', data[i].name)
+					.replace('%{disabled}', data[i].forbidInClient)
 					.replace('%{icon}', Constant.hostname + data[i].icon)
 					.replace('%{name}', data[i].name)
 					.replace('%{remark}', data[i].remark);
@@ -121,12 +122,14 @@ var index = {
 	handle: function() {
 		var id = this.getAttribute('id');
 		var name = this.getAttribute('title');
+		var forbid = this.getAttribute('disabled');
 		mui.openWindow({
 			id: 'html/listmain.html',
 			url: 'html/listmain.html',
 			extras: {
 				_id: id,
-				_name: name
+				_name: name,
+				_forbid: forbid
 			}
 		});
 	}
