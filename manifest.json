@@ -219,9 +219,21 @@
 					"js/menu.min.js",
 					"js/min/menu.min.js",
 					"js/min/mui.min.js",
-					"images/iconfont-tianjia.png"
+					"images/iconfont-tianjia.png",
+					"js/min/app.min.js",
+					"images/head.jpg"
 				],
-				"refer": [],
+				"refer": [
+					"html/feedback.html",
+					"html/signin.html",
+					"html/versioninfo.html",
+					"login.html",
+					"html/message.html",
+					"html/userInfo.html",
+					"html/userinfo.html",
+					"html/messagemain.html",
+					"html/chat.html"
+				],
 				"priority": 0
 			},
 			"html/list.html": {
@@ -348,6 +360,120 @@
 					"fonts/mui.ttf",
 					"js/plugins/moment.min.js",
 					"js/plugins/zh-cn.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/versioninfo.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/feedback.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js",
+					"js/feedback.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/signin.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js",
+					"images/head.jpg",
+					"js/signin.js",
+					"js/min/app.min.js",
+					"images/iconfont-tianjia.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/message.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js",
+					"js/message.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/userInfo.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/signin.js",
+					"js/min/mui.min.js",
+					"images/head.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/userinfo.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js",
+					"images/head.jpg",
+					"js/userinfo.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/messagemain.html": {
+				"resources": [
+					"html/messagesub.html",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/messagesub.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js",
+					"js/messagesub.js",
+					"fonts/mui.ttf",
+					"js/min/jquery.min.js",
+					"js/plugins/moment.min.js",
+					"js/plugins/zh-cn.js"
+				],
+				"refer": [
+					"html/detailmain.html",
+					"html/messagedetail.html"
+				],
+				"priority": 0
+			},
+			"html/messagedetail.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/app.min.js",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"html/chat.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0

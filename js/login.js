@@ -36,14 +36,9 @@ var login = {
 		});
 	},
 	isLogin: function() {
+		// TODO
 		var id = localStorage.getItem(Constant.keys.CLIENT_ID);
 		if(Ajax.isEmpty(id)) return false;
-		var email = localStorage.getItem(Constant.keys.CLIENT_EMAIL);
-		if(Ajax.isEmpty(email)) return false;
-		var nickname = localStorage.getItem(Constant.keys.CLIENT_NICKNAME);
-		if(Ajax.isEmpty(nickname)) return false;
-		var headUrl = localStorage.getItem(Constant.keys.CLIENT_HEADURL);
-		if(Ajax.isEmpty(headUrl)) return false;
 		return true;
 	},
 	login: function() {
@@ -52,6 +47,10 @@ var login = {
 		if(Ajax.isEmpty(email)) {
 			plus.nativeUI.toast('邮箱不能为空');
 			return;
+		}
+		if(!Constant.regex.email.test(email)) {
+			plus.nativeUI.toast('邮箱格式不正确');
+			return; 
 		}
 		if(Ajax.isEmpty(pass)) {
 			plus.nativeUI.toast('密码不能为空');
@@ -65,6 +64,8 @@ var login = {
 			localStorage.setItem(Constant.keys.CLIENT_EMAIL, data.email);
 			localStorage.setItem(Constant.keys.CLIENT_NICKNAME, data.nickname);
 			localStorage.setItem(Constant.keys.CLIENT_HEADURL, data.headUrl);
+			localStorage.setItem(Constant.keys.CLIENT_SIGNINDATE, data.signInDate);
+			localStorage.setItem(Constant.keys.CLIENT_SCORE, data.score);
 			mui.openWindow('index.html', 'index.html');
 		});
 	}

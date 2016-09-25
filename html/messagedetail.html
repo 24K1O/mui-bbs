@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			html,
+			body,
+			.mui-content {
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">系统消息</h1>
+		</header>
+		<div class="mui-content">
+			<!--<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">-->
+					<div class="mui-content-padded" id="content"></div>
+				<!--</div>
+			</div>-->
+		</div>
+		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			/*mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005
+			});*/
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				Ajax.post(Ajax.url.message, {
+					id: self._id
+				}, function(data) {
+					document.getElementById('content').innerHTML = data.content;
+				});
+			});
+		</script>
+	</body>
+
+</html>

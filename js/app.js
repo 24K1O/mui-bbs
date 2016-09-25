@@ -6,12 +6,14 @@ var Constant = {
 		CLIENT_ID: 'clientid',
 		CLIENT_EMAIL: 'clientemail',
 		CLIENT_NICKNAME: 'clientnickname',
-		CLIENT_HEADURL: 'clientheadurl'
+		CLIENT_HEADURL: 'clientheadurl',
+		CLIENT_SIGNINDATE: 'clientsignindate',
+		CLIENT_SCORE: 'clientscore'
 	},
-	init: function() {
-		//localStorage.removeItem(Constant.keys.LIBRARY_COOKIE);
-		//localStorage.removeItem(Constant.keys.CLIENT_ACCOUNT);
+	regex: {
+		email: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
 	},
+	init: function() {},
 	convertToBase64JPG: function(_image, _width, _height, _per) {
 		return Constant.convertToBase64(_image, 'image/jpg', _width, _height, _per);
 	},
@@ -40,6 +42,7 @@ var Constant = {
 		var context = canvas.getContext("2d");
 		context.drawImage(image, 0, 0, width, height);
 		var dataURL = canvas.toDataURL(_media, _per);
+		if(dataURL.trim() == 'data:,') return '';
 		return dataURL.replace("data:image/png;base64,", "");
 	}
 }
@@ -48,40 +51,40 @@ var Ajax = {
 	url: {
 		version: Constant.hostname + '/version/update.json',
 		upload: Constant.hostname + '/upload',
- 
+
 		clientLogin: Constant.hostname + '/pub/client/app/login',
 		clientRegister: Constant.hostname + '/pub/client/app/register',
+		clientSignin: Constant.hostname + '/pub/client/app/signin',
+		clientModifyNickname: Constant.hostname + '/pub/client/app/modifynickname',
+		clientModifyHeadUrl: Constant.hostname + '/pub/client/app/modifyheadurl',
 
 		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
 
-		topicEdit: Constant.hostname + '/bbs/topic/edit',
+		topicEdit: Constant.hostname + '/bbs/topic/app/edit',
 		topicList: Constant.hostname + '/bbs/topic/app/listByTopicType',
 		topic: Constant.hostname + '/bbs/topic/app/topic',
 
-		commentEdit: Constant.hostname + '/bbs/comment/edit',
-		commentList: Constant.hostname + '/bbs/comment/app/listByTopic'
+		commentEdit: Constant.hostname + '/bbs/comment/app/edit',
+		commentList: Constant.hostname + '/bbs/comment/app/listByTopic',
+
+		feedbackEdit: Constant.hostname + '/pub/feedback/app/edit',
+
+		messageList: Constant.hostname + '/bbs/message/app/list',
+		message: Constant.hostname + '/bbs/message/app/message'
 	},
 	timeout: 20000,
 	ajax: function(action, type, data, successCallback, errorCallback, dataType, handleMessage) {
-		var successCallback = successCallback || function(result, textStatus, xhr) {
-			mui.plusReady(function() {
-				plus.nativeUI.toast(textStatus);
-			});
-		}
 		var errorCallback = errorCallback || function(xhr, type, errorThrown) {
 			mui.plusReady(function() {
 				plus.nativeUI.closeWaiting();
 				plus.nativeUI.toast(type);
-				console.info(xhr);
+				console.info(JSON.stringify(xhr));
 				console.info(errorThrown);
 			});
 		}
-		var type = type || 'POST';
-		var dataType = dataType || 'json';
-		var param = data || {};
 		mui.ajax(action, {
 			type: type,
-			data: param,
+			data: data,
 			dataType: dataType,
 			success: function(response) {
 				if(response.success) {
@@ -90,6 +93,7 @@ var Ajax = {
 					handleMessage(response.message);
 				} else {
 					mui.plusReady(function() {
+						plus.nativeUI.closeWaiting();
 						plus.nativeUI.toast(response.message);
 					});
 				}
@@ -106,7 +110,10 @@ var Ajax = {
 	},
 	isEmpty: function(obj) {
 		return obj == null || obj == '' ||
-			obj == 'null' || obj == undefined;
+			obj == 'null' || obj == undefined || obj == 'undefined';
+	},
+	emptyResult: function(id) {
+		document.getElementById(id).innerHTML = '<h4 class="mui-text-center" style="padding: 15px 0">暂时没有数据</h4>';
 	}
 }
 

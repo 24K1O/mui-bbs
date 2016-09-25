@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			p {
+				text-indent: 22px;
+				padding: 5px 8px;
+			}
+			
+			html,
+			body,
+			.mui-content {
+				background-color: #fff;
+			}
+			
+			h4 {
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">版本声明</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h4 style="margin-top:10px;">上社Happy社区</h4>
+				<p>
+					上社happy群，本着污为宗旨，展开一系列发车活动。社区核心价值为权利的诱惑，每周权利洗盘促成了“小集团”的诞生。各位当权者都有自己的集团，形成多国顶立的局面。 happy社区作为happy群的延伸，将为h友门提供新平台，更多元化地为映射权利游戏。
+				</p>
+				<h4>版本介绍</h4>
+				<p>当前版本为<span id="version"></span>，可到
+					<a href="javascript:;">Github</a>上获取最新版本及源码。
+				</p>
+				<h4>作者介绍</h4>
+				<p>
+					yaolin (10)
+				</p>
+				<h4>官方Q群</h4>
+				<p>
+					282559268
+				</p>
+			</div>
+		</div>
+		<script src="../js/min/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui('body').on('tap', 'a', function(e) {
+				var href = this.getAttribute('href');
+				if(href) {
+					if(window.plus) {
+						plus.runtime.openURL(href);
+					} else {
+						location.href = href;
+					}
+				}
+			});
+			mui.plusReady(function() {
+				document.getElementById('version').innerHTML = plus.runtime.version
+			});
+		</script>
+	</body>
+
+</html>

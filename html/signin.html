@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			html,
+			body,
+			.mui-content {
+				background: #fff;
+			}
+			
+			ol li {
+				font-family: "微软雅黑";
+				font-size: 16px;
+			}
+			
+			.img-circle {
+				margin-top: 20px;
+				margin-bottom: 30px;
+				border-radius: 50%;
+			}
+			
+			h4 {
+				margin-top: 20px;
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">积分签到</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-text-center"> 
+				<img id="image" class="img-circle" src="../images/head.jpg" height="100" width="100" />
+			</div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">目前积分 : <span id="score"></span></li>
+				<li class="mui-table-view-cell">上次签到 : <span id="last"></span></li>
+			</ul>
+			<div class="mui-content-padded">
+				<h4>积分获取途径</h4>
+				<ol>
+					<li>日常签到（每日可获5积分）</li>
+					<li>分享应用（每次首次可获5积分）</li>
+					<li>周活跃度（周活跃度转为积分）</li>
+					<li>申请成为管理（暂未开放）</li>
+				</ol>
+			</div>
+		</div>
+		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/signin.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			signin.start();
+		</script>
+	</body>
+
+</html>

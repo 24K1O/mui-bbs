@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.image {
+				padding: 2px 4px 2px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">意见反馈</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row" style="margin-top: 10px">
+				<textarea id="content" rows="5" placeholder="说出您的建议，我们将努力改进..."></textarea>
+			</div>
+			<div>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="btnSubmit" style="padding-top: 10px; padding-bottom: 10px;">
+					提交
+				</button>
+			</div>
+		</div>
+		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/feedback.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			feedback.start();
+		</script>
+	</body>
+
+</html>
