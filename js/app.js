@@ -57,7 +57,8 @@ var Ajax = {
 		clientSignin: Constant.hostname + '/pub/client/app/signin',
 		clientModifyNickname: Constant.hostname + '/pub/client/app/modifynickname',
 		clientModifyHeadUrl: Constant.hostname + '/pub/client/app/modifyheadurl',
-
+		clientModifyPassword: Constant.hostname + '/pub/client/app/modifypassword',
+		
 		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
 
 		topicEdit: Constant.hostname + '/bbs/topic/app/edit',

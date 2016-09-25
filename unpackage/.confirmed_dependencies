@@ -217,6 +217,9 @@
 			"js/min/mui.min.js",
 			"images/head.jpg",
 			"js/userinfo.js"
+		],
+		"refer": [
+			"html/passwordmodify.html"
 		]
 	},
 	"html/messagemain.html": {
@@ -258,7 +261,26 @@
 		"resources": [
 			"fonts/mui.ttf",
 			"css/mui.min.css",
+			"js/min/mui.min.js",
+			"js/min/app.min.js",
+			"js/chat.js",
+			"js/min/jquery.min.js",
+			"images/logo.png",
+			"css/chat.css",
+			"css/chat.min.css",
+			"images/head.jpg",
+			"html/%%7BheadUrl%7D"
+		]
+	},
+	"html/passwordmodify.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/min/app.min.js",
 			"js/min/mui.min.js"
+		],
+		"refer": [
+			"login.html"
 		]
 	}
 }
