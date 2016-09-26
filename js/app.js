@@ -9,7 +9,8 @@ var Constant = {
 		CLIENT_HEADURL: 'clientheadurl',
 		CLIENT_SIGNINDATE: 'clientsignindate',
 		CLIENT_SCORE: 'clientscore',
-		CLIENT_ADMIN: 'clientadmin'
+		CLIENT_ADMIN: 'clientadmin',
+		CLIENT_TOKEN: 'clienttoken'
 	},
 	regex: {
 		email: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
@@ -50,7 +51,7 @@ var Constant = {
 
 var Ajax = {
 	url: {
-		version: Constant.hostname + '/version/app/update.json',
+		version: Constant.hostname + '/version/app/version.json',
 
 		clientLogin: Constant.hostname + '/pub/client/app/login',
 		clientRegister: Constant.hostname + '/pub/client/app/register',
@@ -58,7 +59,8 @@ var Ajax = {
 		clientModifyNickname: Constant.hostname + '/pub/client/app/modifynickname',
 		clientModifyHeadUrl: Constant.hostname + '/pub/client/app/modifyheadurl',
 		clientModifyPassword: Constant.hostname + '/pub/client/app/modifypassword',
-
+		clientToken: Constant.hostname + '/pub/client/app/token',
+		
 		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
 
 		topicEdit: Constant.hostname + '/bbs/topic/app/edit',
@@ -71,7 +73,9 @@ var Ajax = {
 		feedbackEdit: Constant.hostname + '/pub/feedback/app/edit',
 
 		messageList: Constant.hostname + '/bbs/message/app/list',
-		message: Constant.hostname + '/bbs/message/app/message'
+		message: Constant.hostname + '/bbs/message/app/message',
+		messageNotRead: Constant.hostname + '/bbs/message/app/notread',
+		messageRead: Constant.hostname + '/bbs/message/app/read'
 	},
 	timeout: 20000,
 	ajax: function(action, type, data, successCallback, errorCallback, dataType, handleMessage) {

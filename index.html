@@ -15,7 +15,7 @@
 			<a class="mui-action-menu mui-icon mui-icon-bars mui-pull-left"></a>
 			<h1 class="mui-title">上社Happy社区</h1>
 		</header>
-		<div class="mui-content"> 
+		<div class="mui-content">
 			<div class="mui-scroll-wrapper" style="margin-top: 48px">
 				<div class="mui-scroll">
 					<ul class="mui-table-view" id="topicTypeList">
@@ -24,11 +24,15 @@
 			</div>
 		</div>
 	</body>
-	<script src="js/min/mui.min.js"></script> 
+	<script src="js/min/mui.min.js"></script>
 	<script src="js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/min/index.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/min/version.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		index.start();
+		mui.plusReady(function(){
+			version.start();
+		});
 	</script>
 	</body>
 

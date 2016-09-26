@@ -42,6 +42,10 @@
 			.mui-table-view {
 				margin-bottom: 35px;
 			}
+			
+			.mui-badge {
+				background: rgba(255,255,255,1);
+			}
 		</style>
 	</head>
 
@@ -60,7 +64,7 @@
 				</li>
 				<li class="mui-table-view-cell" id="message">
 					<a class="mui-navigate-right">
-						我的消息
+						我的消息<span class="mui-badge mui-hidden" id="readCount">5</span>
 					</a>
 				</li>
 				<li class="mui-table-view-cell" id="signIn">
@@ -73,19 +77,24 @@
 						社区群聊
 					</a>
 				</li>
-				<li class="mui-table-view-cell" id="share">
+				<!--<li class="mui-table-view-cell" id="share">
 					<a class="mui-navigate-right">
 						分享应用
 					</a>
-				</li>
-				<li class="mui-table-view-cell" id="versionInfo">
-					<a class="mui-navigate-right">
-						版本声明
-					</a>
-				</li>
+				</li>-->
 				<li class="mui-table-view-cell" id="feedback">
 					<a class="mui-navigate-right">
 						意见反馈
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="version">
+					<a class="mui-navigate-right">
+						版本更新
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="about">
+					<a class="mui-navigate-right">
+						关　　于
 					</a>
 				</li>
 				<li class="mui-table-view-cell" id="logout">
@@ -97,6 +106,7 @@
 		</div>
 		<script src="js/min/mui.min.js"></script>
 		<script src="js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/min/version.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/min/menu.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" charset="utf-8">
 			menu.start();

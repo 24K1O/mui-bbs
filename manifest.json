@@ -1,6 +1,6 @@
 {
 	"@platforms": ["android", "iPhone", "iPad"],
-	"id": "C10",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"id": "H588367AA",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "happy-bbs",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0.0",/*应用版本名称*/
@@ -201,7 +201,10 @@
 					"js/index.min.js",
 					"js/min/index.min.js",
 					"js/min/mui.min.js",
-					"js/min/app.min.js"
+					"js/min/app.min.js",
+					"version/version.js",
+					"version/update.js",
+					"js/min/version.min.js"
 				],
 				"refer": [
 					"menu.html",
@@ -221,7 +224,9 @@
 					"js/min/mui.min.js",
 					"images/iconfont-tianjia.png",
 					"js/min/app.min.js",
-					"images/head.jpg"
+					"images/head.jpg",
+					"version/version.js",
+					"js/min/version.min.js"
 				],
 				"refer": [
 					"html/feedback.html",
@@ -232,7 +237,8 @@
 					"html/userInfo.html",
 					"html/userinfo.html",
 					"html/messagemain.html",
-					"html/chat.html"
+					"html/chat.html",
+					"html/about.html"
 				],
 				"priority": 0
 			},
@@ -275,7 +281,8 @@
 					"plugins/editor/css/fonts/icomoon.svg",
 					"fonts/mui.ttf",
 					"js/plugins/moment.min.js",
-					"js/plugins/zh-cn.js"
+					"js/plugins/zh-cn.js",
+					"js/min/listsub.min.js"
 				],
 				"refer": [
 					"html/detailmain.html",
@@ -393,7 +400,9 @@
 					"images/head.jpg",
 					"js/signin.js",
 					"js/min/app.min.js",
-					"images/iconfont-tianjia.png"
+					"images/iconfont-tianjia.png",
+					"images/unsign.png",
+					"images/signed.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -484,7 +493,8 @@
 					"css/chat.css",
 					"css/chat.min.css",
 					"images/head.jpg",
-					"html/%%7BheadUrl%7D"
+					"html/%%7BheadUrl%7D",
+					"js/min/chat.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -499,6 +509,15 @@
 				"refer": [
 					"login.html"
 				],
+				"priority": 0
+			},
+			"html/about.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/min/mui.min.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

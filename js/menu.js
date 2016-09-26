@@ -8,13 +8,15 @@ var menu = {
 				menubutton: false
 			}
 		});
-		console.info('show');
 		menu.after();
 	},
 	before: function() {
 		window.addEventListener('refresh', function(e) {
 			menu.refresh();
 		});
+		window.addEventListener('notRead', function(e) {
+			menu.notRead();
+		})
 		menu.refresh();
 	},
 	after: function() {
@@ -28,6 +30,7 @@ var menu = {
 			menu.close();
 		});
 		document.getElementById('message').addEventListener('tap', function() {
+			menu.read();
 			mui.openWindow('html/messagemain.html', 'html/messagemain.html');
 			menu.close();
 		});
@@ -39,16 +42,24 @@ var menu = {
 			mui.openWindow('html/chat.html', 'html/chat.html');
 			menu.close();
 		});
-		document.getElementById('share').addEventListener('tap', function() {
+		/*document.getElementById('share').addEventListener('tap', function() {
 			mui.plusReady(function() {
-				plus.nativeUI.alert('此功能10 正在开发中');
+				plus.nativeUI.alert(' 此应用太污，不建议分享！');
+			});
+			menu.close();
+		});*/
+		document.getElementById('version').addEventListener('tap', function() {
+			mui.plusReady(function() {
+				version.auto = false;
+				version.start();
 			});
 			menu.close();
 		});
-		document.getElementById('versionInfo').addEventListener('tap', function() {
-			mui.openWindow('html/versioninfo.html', 'html/versioninfo.html');
+		document.getElementById('about').addEventListener('tap', function() {
+			mui.openWindow('html/about.html', 'html/about.html');
 			menu.close();
 		});
+
 		document.getElementById('feedback').addEventListener('tap', function() {
 			mui.openWindow('html/feedback.html', 'html/feedback.html');
 			menu.close();
@@ -72,5 +83,25 @@ var menu = {
 	refresh: function() {
 		document.getElementById('headUrl').setAttribute('src', Constant.hostname + localStorage.getItem(Constant.keys.CLIENT_HEADURL));
 		document.getElementById('nickname').innerHTML = localStorage.getItem(Constant.keys.CLIENT_NICKNAME);
+	},
+	notRead: function() {
+		Ajax.post(Ajax.url.messageNotRead, {
+			id: localStorage.getItem(Constant.keys.CLIENT_ID)
+		}, function(data) {
+			var readCountEl = document.getElementById('readCount');
+			if(parseInt(data, 10) > 0) {
+				readCountEl.innerHTML = parseInt(data, 10);
+				readCountEl.classList.remove('mui-hidden');
+			} else {
+				readCountEl.classList.add('mui-hidden');
+			}
+		});
+	},
+	read: function() {
+		Ajax.post(Ajax.url.messageRead, {
+			id: localStorage.getItem(Constant.keys.CLIENT_ID)
+		}, function(data) {
+			document.getElementById('readCount').classList.add('mui-hidden');
+		});
 	}
 }

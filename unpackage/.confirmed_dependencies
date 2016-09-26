@@ -1,287 +1,312 @@
 {
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/index.js",
-			"js/index.min.js",
-			"js/min/index.min.js",
-			"js/min/mui.min.js",
-			"js/min/app.min.js"
-		],
-		"refer": [
-			"menu.html",
-			"html/list.html",
-			"html/listmain.html"
-		]
-	},
-	"menu.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/menu.js",
-			"js/menu.min.js",
-			"js/min/menu.min.js",
-			"js/min/mui.min.js",
-			"images/iconfont-tianjia.png",
-			"js/min/app.min.js",
-			"images/head.jpg"
-		],
-		"refer": [
-			"html/feedback.html",
-			"html/signin.html",
-			"html/versioninfo.html",
-			"login.html",
-			"html/message.html",
-			"html/userInfo.html",
-			"html/userinfo.html",
-			"html/messagemain.html",
-			"html/chat.html"
-		]
-	},
-	"html/list.html": {
-		"resources": [
-			"js/min/jquery.min.js",
-			"css/mui.min.css",
-			"css/bootstrap.min.css",
-			"js/min/mui.min.js",
-			"fonts/mui.ttf",
-			"js/min/list.min.js",
-			"js/list.js",
-			"js/min/app.min.js"
-		],
-		"refer": []
-	},
-	"html/listmain.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"html/listsub.html",
-			"js/min/mui.min.js",
-			"js/min/app.min.js"
-		],
-		"refer": [
-			"html/listsub.html",
-			"html/write.html"
-		]
-	},
-	"html/listsub.html": {
-		"resources": [
-			"js/min/jquery.min.js",
-			"css/bootstrap.min.css",
-			"js/min/app.min.js",
-			"js/listsub.js",
-			"images/logo.png",
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"plugins/editor/css/fonts/icomoon.svg",
-			"fonts/mui.ttf",
-			"js/plugins/moment.min.js",
-			"js/plugins/zh-cn.js"
-		],
-		"refer": [
-			"html/detailmain.html",
-			"html/write.html"
-		]
-	},
-	"login.html": {
-		"resources": [
-			"js/login.js",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"fonts/mui.ttf",
-			"js/min/login.min.js"
-		],
-		"refer": [
-			"register.html",
-			"reset.html",
-			"index.html"
-		]
-	},
-	"register.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"js/register.js",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"js/min/register.min.js"
-		],
-		"refer": [
-			"login.html"
-		]
-	},
-	"reset.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js"
-		],
-		"refer": []
-	},
-	"html/write.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"fonts/mui.ttf",
-			"plugins/editor/css/editor.min.css",
-			"plugins/editor/js/lib/zepto.touch.js",
-			"plugins/editor/js/lib/zepto.js",
-			"plugins/editor/js/editor.min.js",
-			"images/iconfont-tianjia.png",
-			"js/write.js",
-			"js/min/app.min.js"
-		],
-		"refer": [
-			"html/listmain.html"
-		]
-	},
-	"html/detailmain.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"html/detailsub.html"
-		],
-		"refer": [
-			"html/detailsub.html"
-		]
-	},
-	"html/detailsub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"js/min/jquery.min.js",
-			"css/bootstrap.min.css",
-			"js/detailsub.js",
-			"js/min/app.min.js",
-			"fonts/mui.ttf",
-			"js/plugins/moment.min.js",
-			"js/plugins/zh-cn.js"
-		],
-		"refer": []
-	},
-	"html/versioninfo.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js"
-		]
-	},
-	"html/feedback.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"js/feedback.js"
-		]
-	},
-	"html/signin.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"images/head.jpg",
-			"js/signin.js",
-			"js/min/app.min.js",
-			"images/iconfont-tianjia.png"
-		]
-	},
-	"html/message.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"js/message.js"
-		]
-	},
-	"html/userInfo.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/signin.js",
-			"js/min/mui.min.js",
-			"images/head.jpg"
-		]
-	},
-	"html/userinfo.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"images/head.jpg",
-			"js/userinfo.js"
-		],
-		"refer": [
-			"html/passwordmodify.html"
-		]
-	},
-	"html/messagemain.html": {
-		"resources": [
-			"html/messagesub.html",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js"
-		],
-		"refer": [
-			"html/messagesub.html"
-		]
-	},
-	"html/messagesub.html": {
-		"resources": [
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js",
-			"js/messagesub.js",
-			"fonts/mui.ttf",
-			"js/min/jquery.min.js",
-			"js/plugins/moment.min.js",
-			"js/plugins/zh-cn.js"
-		],
-		"refer": [
-			"html/detailmain.html",
-			"html/messagedetail.html"
-		]
-	},
-	"html/messagedetail.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js"
-		]
-	},
-	"html/chat.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/mui.min.js",
-			"js/min/app.min.js",
-			"js/chat.js",
-			"js/min/jquery.min.js",
-			"images/logo.png",
-			"css/chat.css",
-			"css/chat.min.css",
-			"images/head.jpg",
-			"html/%%7BheadUrl%7D"
-		]
-	},
-	"html/passwordmodify.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/min/app.min.js",
-			"js/min/mui.min.js"
-		],
-		"refer": [
-			"login.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/index.js",
+      "js/index.min.js",
+      "js/min/index.min.js",
+      "js/min/mui.min.js",
+      "js/min/app.min.js",
+      "version/version.js",
+      "version/update.js",
+      "js/min/version.min.js"
+    ],
+    "refer": [
+      "menu.html",
+      "html/list.html",
+      "html/listmain.html"
+    ]
+  },
+  "menu.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/menu.js",
+      "js/menu.min.js",
+      "js/min/menu.min.js",
+      "js/min/mui.min.js",
+      "images/iconfont-tianjia.png",
+      "js/min/app.min.js",
+      "images/head.jpg",
+      "version/version.js",
+      "js/min/version.min.js"
+    ],
+    "refer": [
+      "html/feedback.html",
+      "html/signin.html",
+      "html/versioninfo.html",
+      "login.html",
+      "html/message.html",
+      "html/userInfo.html",
+      "html/userinfo.html",
+      "html/messagemain.html",
+      "html/chat.html",
+      "html/about.html"
+    ]
+  },
+  "html/list.html": {
+    "resources": [
+      "js/min/jquery.min.js",
+      "css/mui.min.css",
+      "css/bootstrap.min.css",
+      "js/min/mui.min.js",
+      "fonts/mui.ttf",
+      "js/min/list.min.js",
+      "js/list.js",
+      "js/min/app.min.js"
+    ],
+    "refer": []
+  },
+  "html/listmain.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "html/listsub.html",
+      "js/min/mui.min.js",
+      "js/min/app.min.js"
+    ],
+    "refer": [
+      "html/listsub.html",
+      "html/write.html"
+    ]
+  },
+  "html/listsub.html": {
+    "resources": [
+      "js/min/jquery.min.js",
+      "css/bootstrap.min.css",
+      "js/min/app.min.js",
+      "js/listsub.js",
+      "images/logo.png",
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "plugins/editor/css/fonts/icomoon.svg",
+      "fonts/mui.ttf",
+      "js/plugins/moment.min.js",
+      "js/plugins/zh-cn.js",
+      "js/min/listsub.min.js"
+    ],
+    "refer": [
+      "html/detailmain.html",
+      "html/write.html"
+    ]
+  },
+  "login.html": {
+    "resources": [
+      "js/login.js",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "fonts/mui.ttf",
+      "js/min/login.min.js"
+    ],
+    "refer": [
+      "register.html",
+      "reset.html",
+      "index.html"
+    ]
+  },
+  "register.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/register.js",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "js/min/register.min.js"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "reset.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js"
+    ],
+    "refer": []
+  },
+  "html/write.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "fonts/mui.ttf",
+      "plugins/editor/css/editor.min.css",
+      "plugins/editor/js/lib/zepto.touch.js",
+      "plugins/editor/js/lib/zepto.js",
+      "plugins/editor/js/editor.min.js",
+      "images/iconfont-tianjia.png",
+      "js/write.js",
+      "js/min/app.min.js"
+    ],
+    "refer": [
+      "html/listmain.html"
+    ]
+  },
+  "html/detailmain.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "html/detailsub.html"
+    ],
+    "refer": [
+      "html/detailsub.html"
+    ]
+  },
+  "html/detailsub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "js/min/jquery.min.js",
+      "css/bootstrap.min.css",
+      "js/detailsub.js",
+      "js/min/app.min.js",
+      "fonts/mui.ttf",
+      "js/plugins/moment.min.js",
+      "js/plugins/zh-cn.js"
+    ],
+    "refer": []
+  },
+  "html/versioninfo.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js"
+    ],
+    "refer": []
+  },
+  "html/feedback.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "js/feedback.js"
+    ],
+    "refer": []
+  },
+  "html/signin.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "images/head.jpg",
+      "js/signin.js",
+      "js/min/app.min.js",
+      "images/iconfont-tianjia.png",
+      "images/unsign.png",
+      "images/signed.png"
+    ],
+    "refer": []
+  },
+  "html/message.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "js/message.js"
+    ],
+    "refer": []
+  },
+  "html/userInfo.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/signin.js",
+      "js/min/mui.min.js",
+      "images/head.jpg"
+    ],
+    "refer": []
+  },
+  "html/userinfo.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "images/head.jpg",
+      "js/userinfo.js"
+    ],
+    "refer": [
+      "html/passwordmodify.html"
+    ]
+  },
+  "html/messagemain.html": {
+    "resources": [
+      "html/messagesub.html",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js"
+    ],
+    "refer": [
+      "html/messagesub.html"
+    ]
+  },
+  "html/messagesub.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js",
+      "js/messagesub.js",
+      "fonts/mui.ttf",
+      "js/min/jquery.min.js",
+      "js/plugins/moment.min.js",
+      "js/plugins/zh-cn.js"
+    ],
+    "refer": [
+      "html/detailmain.html",
+      "html/messagedetail.html"
+    ]
+  },
+  "html/messagedetail.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js"
+    ],
+    "refer": []
+  },
+  "html/chat.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js",
+      "js/min/app.min.js",
+      "js/chat.js",
+      "js/min/jquery.min.js",
+      "images/logo.png",
+      "css/chat.css",
+      "css/chat.min.css",
+      "images/head.jpg",
+      "html/%%7BheadUrl%7D",
+      "js/min/chat.min.js"
+    ],
+    "refer": []
+  },
+  "html/passwordmodify.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/app.min.js",
+      "js/min/mui.min.js"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "html/about.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/min/mui.min.js"
+    ],
+    "refer": []
+  }
 }

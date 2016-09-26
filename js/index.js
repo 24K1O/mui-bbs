@@ -66,6 +66,7 @@ var index = {
 	},
 	open: function() {
 		if(!index.show) {
+			index.notifyMenuNotRead();
 			index.menu.show('none', 0, function() {
 				index.menu.setStyle({
 					left: '0%',
@@ -133,5 +134,9 @@ var index = {
 				_forbid: forbid
 			}
 		});
+	},
+	notifyMenuNotRead: function() {
+		var menu = plus.webview.getWebviewById('menu.html');
+		mui.fire(menu, 'notRead');
 	}
 }

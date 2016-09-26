@@ -36,6 +36,7 @@ var register = {
 			plus.nativeUI.toast('两次密码不一致');
 			return;
 		}
+		document.getElementById('btnRegister').setAttribute('disabled', 'disabled');
 		Ajax.post(Ajax.url.clientRegister, {
 			email: email,
 			password: pass,
