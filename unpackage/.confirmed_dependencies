@@ -59,7 +59,8 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"html/listsub.html",
-			"js/min/mui.min.js"
+			"js/min/mui.min.js",
+			"js/min/app.min.js"
 		],
 		"refer": [
 			"html/listsub.html",

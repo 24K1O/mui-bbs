@@ -8,7 +8,8 @@ var Constant = {
 		CLIENT_NICKNAME: 'clientnickname',
 		CLIENT_HEADURL: 'clientheadurl',
 		CLIENT_SIGNINDATE: 'clientsignindate',
-		CLIENT_SCORE: 'clientscore'
+		CLIENT_SCORE: 'clientscore',
+		CLIENT_ADMIN: 'clientadmin'
 	},
 	regex: {
 		email: /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
@@ -49,8 +50,7 @@ var Constant = {
 
 var Ajax = {
 	url: {
-		version: Constant.hostname + '/version/update.json',
-		upload: Constant.hostname + '/upload',
+		version: Constant.hostname + '/version/app/update.json',
 
 		clientLogin: Constant.hostname + '/pub/client/app/login',
 		clientRegister: Constant.hostname + '/pub/client/app/register',
@@ -58,7 +58,7 @@ var Ajax = {
 		clientModifyNickname: Constant.hostname + '/pub/client/app/modifynickname',
 		clientModifyHeadUrl: Constant.hostname + '/pub/client/app/modifyheadurl',
 		clientModifyPassword: Constant.hostname + '/pub/client/app/modifypassword',
-		
+
 		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
 
 		topicEdit: Constant.hostname + '/bbs/topic/app/edit',
@@ -83,24 +83,25 @@ var Ajax = {
 				console.info(errorThrown);
 			});
 		}
-		mui.ajax(action, {
-			type: type,
-			data: data,
-			dataType: dataType,
-			success: function(response) {
-				if(response.success) {
-					successCallback(response.data);
-				} else if(handleMessage) {
-					handleMessage(response.message);
-				} else {
-					mui.plusReady(function() {
+		mui.plusReady(function() {
+			data.uuid = plus.device.uuid;
+			mui.ajax(action, {
+				type: type,
+				data: data,
+				dataType: dataType,
+				success: function(response) {
+					if(response.success) {
+						successCallback(response.data);
+					} else if(handleMessage) {
+						handleMessage(response.message);
+					} else {
 						plus.nativeUI.closeWaiting();
 						plus.nativeUI.toast(response.message);
-					});
-				}
-			},
-			error: errorCallback,
-			timeout: Ajax.timeout
+					}
+				},
+				error: errorCallback,
+				timeout: Ajax.timeout
+			});
 		});
 	},
 	post: function(action, data, successCallback) {

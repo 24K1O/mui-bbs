@@ -8,11 +8,14 @@ var menu = {
 				menubutton: false
 			}
 		});
+		console.info('show');
 		menu.after();
 	},
 	before: function() {
-		document.getElementById('headUrl').setAttribute('src', Constant.hostname + localStorage.getItem(Constant.keys.CLIENT_HEADURL));
-		document.getElementById('nickname').innerHTML = localStorage.getItem(Constant.keys.CLIENT_NICKNAME);
+		window.addEventListener('refresh', function(e) {
+			menu.refresh();
+		});
+		menu.refresh();
 	},
 	after: function() {
 		mui.plusReady(function() {
@@ -65,5 +68,9 @@ var menu = {
 				}
 			}, "注　销", ["取消", "确定"]);
 		});
+	},
+	refresh: function() {
+		document.getElementById('headUrl').setAttribute('src', Constant.hostname + localStorage.getItem(Constant.keys.CLIENT_HEADURL));
+		document.getElementById('nickname').innerHTML = localStorage.getItem(Constant.keys.CLIENT_NICKNAME);
 	}
 }

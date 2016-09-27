@@ -85,6 +85,7 @@ footer {
 .msg-item {
 	padding: 8px;
 	clear: both;
+	position: relative;
 }
 
 .msg-item .mui-item-clear {

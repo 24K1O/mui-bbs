@@ -46,13 +46,14 @@ var index = {
 				index.open();
 			}
 		}
+		mui.back = function() {}
 	},
 	pReady: function() {
 		mui.plusReady(function() {
 			index.main = plus.webview.currentWebview();
 			setTimeout(function() {
 				index.menu = mui.preload({
-					id: 'menu',
+					id: 'menu.html',
 					url: 'menu.html',
 					styles: {
 						left: 0,

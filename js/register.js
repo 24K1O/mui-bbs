@@ -24,6 +24,10 @@ var register = {
 			plus.nativeUI.toast('邮箱不能为空');
 			return;
 		}
+		if(!Constant.regex.email.test(email)) {
+			plus.nativeUI.toast('邮箱格式不正确');
+			return;
+		}
 		if(Ajax.isEmpty(pass)) {
 			plus.nativeUI.toast('密码不能为空');
 			return;

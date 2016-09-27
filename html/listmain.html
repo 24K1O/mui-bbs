@@ -24,21 +24,22 @@
 				<a class="mui-tab-item mui-active" href="javascript:;" id="btnPublish">
 					发布帖子
 				</a>
-			</nav> 
+			</nav>
 		</footer>
 		<script src="../js/min/mui.min.js"></script>
+		<script src="../js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
 				document.getElementById('title').innerHTML = self._name;
 				bottom = 0;
-				if(!self._forbid || self._forbid=='false') {
+				var admin = localStorage.getItem(Constant.keys.CLIENT_ADMIN);
+				if(admin == true || admin == 'true' || !self._forbid || self._forbid == 'false') {
 					bottom = 45;
 					document.getElementById('footer').classList.remove('mui-hidden');
 				}
-				
 				mui.init({
-					subpages: [{ 
+					subpages: [{
 						url: 'listsub.html',
 						id: 'listsub.html',
 						styles: {
@@ -61,10 +62,10 @@
 						}
 					});
 				});
-//				window.addEventListener('refresh', function(e) {
-//					var list = plus.webview.getWebviewById('listsub.html');
-//					mui.fire(list, 'refresh');
-//				});
+				//				window.addEventListener('refresh', function(e) {
+				//					var list = plus.webview.getWebviewById('listsub.html');
+				//					mui.fire(list, 'refresh');
+				//				});
 			});
 		</script>
 	</body>
