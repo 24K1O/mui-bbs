@@ -1,5 +1,6 @@
 var Constant = {
-	hostname: 'http://192.168.0.102',
+	//hostname: 'http://192.168.0.102',
+	hostname: 'https://bbs-yaolin.rhcloud.com',
 	defaultPageSize: 10,
 	keys: {
 		GLOBAL_ID: 'globalid',
@@ -60,7 +61,7 @@ var Ajax = {
 		clientModifyHeadUrl: Constant.hostname + '/pub/client/app/modifyheadurl',
 		clientModifyPassword: Constant.hostname + '/pub/client/app/modifypassword',
 		clientToken: Constant.hostname + '/pub/client/app/token',
-		
+
 		topicTypeList: Constant.hostname + '/bbs/topictype/app/list',
 
 		topicEdit: Constant.hostname + '/bbs/topic/app/edit',
@@ -83,10 +84,10 @@ var Ajax = {
 			mui.plusReady(function() {
 				plus.nativeUI.closeWaiting();
 				plus.nativeUI.toast(type);
-				console.info(JSON.stringify(xhr));
-				console.info(errorThrown);
+				Ajax.activeGreyBtn();
 			});
 		}
+		Ajax.disabledPrimaryBtn();
 		mui.plusReady(function() {
 			data.uuid = plus.device.uuid;
 			mui.ajax(action, {
@@ -102,6 +103,7 @@ var Ajax = {
 						plus.nativeUI.closeWaiting();
 						plus.nativeUI.toast(response.message);
 					}
+					Ajax.activeGreyBtn();
 				},
 				error: errorCallback,
 				timeout: Ajax.timeout
@@ -118,8 +120,19 @@ var Ajax = {
 		return obj == null || obj == '' ||
 			obj == 'null' || obj == undefined || obj == 'undefined';
 	},
-	emptyResult: function(id) {
-		document.getElementById(id).innerHTML = '<h4 class="mui-text-center" style="padding: 15px 0">暂时没有数据</h4>';
+	disabledPrimaryBtn: function() {
+		var btn = mui('.ajax-waiting')[0];
+		if(btn == undefined) return;
+		btn.setAttribute('disabled', 'disabled');
+		btn.classList.remove('mui-btn-primary');
+		btn.classList.add('mui-btn-grey');
+	},
+	activeGreyBtn: function() {
+		var btn = mui('.ajax-waiting')[0];
+		if(btn == undefined) return;
+		btn.removeAttribute('disabled');
+		btn.classList.remove('mui-btn-grey');
+		btn.classList.add('mui-btn-primary');
 	}
 }
 

@@ -2,7 +2,7 @@
 echo --------------- START BUILD -----------------
 
 
-call build.bat menu.js
+call build.bat app.js
 
 
 echo ---------------------------------------------

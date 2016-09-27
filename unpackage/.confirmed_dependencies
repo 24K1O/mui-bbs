@@ -105,7 +105,8 @@
     "refer": [
       "register.html",
       "reset.html",
-      "index.html"
+      "index.html",
+      "guide.html"
     ]
   },
   "register.html": {
@@ -140,7 +141,8 @@
       "plugins/editor/js/editor.min.js",
       "images/iconfont-tianjia.png",
       "js/write.js",
-      "js/min/app.min.js"
+      "js/min/app.min.js",
+      "js/min/write.min.js"
     ],
     "refer": [
       "html/listmain.html"
@@ -167,7 +169,8 @@
       "js/min/app.min.js",
       "fonts/mui.ttf",
       "js/plugins/moment.min.js",
-      "js/plugins/zh-cn.js"
+      "js/plugins/zh-cn.js",
+      "js/min/detailsub.min.js"
     ],
     "refer": []
   },
@@ -185,7 +188,8 @@
       "css/mui.min.css",
       "js/min/app.min.js",
       "js/min/mui.min.js",
-      "js/feedback.js"
+      "js/feedback.js",
+      "js/min/feedback.min.js"
     ],
     "refer": []
   },
@@ -199,7 +203,8 @@
       "js/min/app.min.js",
       "images/iconfont-tianjia.png",
       "images/unsign.png",
-      "images/signed.png"
+      "images/signed.png",
+      "js/min/signin.min.js"
     ],
     "refer": []
   },
@@ -231,7 +236,8 @@
       "js/min/app.min.js",
       "js/min/mui.min.js",
       "images/head.jpg",
-      "js/userinfo.js"
+      "js/userinfo.js",
+      "js/min/userinfo.min.js"
     ],
     "refer": [
       "html/passwordmodify.html"
@@ -257,7 +263,8 @@
       "fonts/mui.ttf",
       "js/min/jquery.min.js",
       "js/plugins/moment.min.js",
-      "js/plugins/zh-cn.js"
+      "js/plugins/zh-cn.js",
+      "js/min/messagesub.min.js"
     ],
     "refer": [
       "html/detailmain.html",
@@ -308,5 +315,11 @@
       "js/min/mui.min.js"
     ],
     "refer": []
+  },
+  "guide.html": {
+    "resources": [
+      "js/min/mui.min.js",
+      "css/mui.min.css"
+    ]
   }
 }

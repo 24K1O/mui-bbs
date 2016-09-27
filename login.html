@@ -13,10 +13,15 @@
 				margin: 0px;
 				padding: 0px;
 			}
-			.mui-content{height: 100%;}
+			
+			.mui-content {
+				height: 100%;
+			}
+			
 			.area {
 				margin: 20px auto 0px auto;
 			}
+			
 			.mui-input-group {
 				margin-top: 10px;
 			}
@@ -32,9 +37,9 @@
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%; 
+				width: 78%;
 			}
-
+			
 			.mui-content-padded {
 				margin-top: 25px;
 			}
@@ -58,10 +63,10 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav mui-hidden" id="header">
 			<h1 class="mui-title">登录</h1>
-		</header> 
-		<div class="mui-content">
+		</header>
+		<div class="mui-content mui-hidden" id="body">
 			<form id='frmlogin' class="mui-input-group">
 				<div class="mui-input-row">
 					<label>邮箱</label>
@@ -72,9 +77,11 @@
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码" maxlength="30">
 				</div>
 			</form>
-			<div class="mui-content-padded"> 
-				<button id='btnLogin' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area"><a id='btnRegister'>注册账号</a> <span class="spliter"><!--|</span> <a id='btnReset'>忘记密码</a>-->
+			<div class="mui-content-padded">
+				<button id='btnLogin' class="mui-btn mui-btn-block mui-btn-primary ajax-waiting">登录</button>
+				<div class="link-area">
+					<a id='btnRegister'>注册账号</a> <span class="spliter"><!--|</span>
+					<a id='btnReset'>忘记密码</a>-->
 				</div>
 			</div>
 		</div>
@@ -82,8 +89,24 @@
 		<script src="js/min/app.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/min/login.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			login.start();
-		</script> 
+			mui.plusReady(function() {
+				var guide = plus.storage.getItem("guide");
+				if(guide == null) {
+					mui.openWindow({
+						id: 'guide.html',
+						url: 'guide.html',
+						waiting: {
+							autoShow: false
+						}
+					});
+				}
+				mui.later(function() {
+					document.getElementById('header').classList.remove('mui-hidden');
+					document.getElementById('body').classList.remove('mui-hidden');
+					login.start();
+				}, 150);
+			});
+		</script>
 	</body>
 
 </html>
