@@ -1,11 +1,2 @@
 .project
-*.js
-*.bat
-*.jar
-*.css
 unpackage/
-!*.min.js
-!*.min.css
-js/min/app.min.js
-js/min/chat.min.js
-manifest.json
